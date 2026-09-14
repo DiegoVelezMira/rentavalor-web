@@ -7,196 +7,286 @@
 <meta name="description" content="La IA no reemplaza el criterio financiero: lo amplifica. Automatizamos lo repetitivo para que tu equipo recupere tiempo y potencie lo que la IA no puede hacer: razonar. Haz tu diagnóstico gratis.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#132844;--navy-2:#0d1c31;--signal:#2f6db5;--gold:#c6a15b;--gold-soft:#d8cfb8;
-    --cream:#f5f1e8;--cream-2:#efe9db;--ink:#1a1d24;--ink-soft:#4a4f5a;--white:#ffffff;
-    --maxw:1140px;--serif:'Spectral',Georgia,serif;--sans:'IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+    --navy:#0f2036;--navy-2:#0a1626;--signal:#4986cf;--gold:#c6a15b;--gold-soft:#ddd0af;
+    --cream:#faf8f3;--cream-2:#f1ece0;--ink:#15181f;--ink-soft:#54596a;--ink-faint:#8890a0;--white:#ffffff;
+    --line:rgba(15,32,54,0.09);--line-dark:rgba(255,255,255,0.12);
+    --maxw:1160px;--serif:'Spectral',Georgia,serif;--sans:'IBM Plex Sans',system-ui,-apple-system,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+    --ease:cubic-bezier(.16,1,.3,1);--ease-spring:cubic-bezier(.34,1.56,.64,1);
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.6}
-  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.15}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-  header{background:var(--navy);color:var(--white);padding:20px 0}
-  header .wrap{display:flex;align-items:center;justify-content:space-between}
-  .logo{font-family:var(--serif);font-size:20px}
-  .logo span{font-family:var(--mono);font-size:11px;letter-spacing:0.15em;color:var(--gold-soft);margin-left:8px}
-  nav a{color:var(--white);text-decoration:none;font-family:var(--mono);font-size:12px;letter-spacing:0.1em;margin-left:28px}
-  .btn-gold{background:var(--gold);color:var(--navy-2);padding:10px 20px;border-radius:4px;font-family:var(--mono);font-size:12px;letter-spacing:0.08em;text-decoration:none;font-weight:600;border:none;cursor:pointer;display:inline-block}
-  .btn-gold:disabled{opacity:0.5;cursor:not-allowed}
-  .hero{background:var(--navy);color:var(--white);padding:110px 0}
-  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:0.2em;color:var(--gold-soft);margin-bottom:24px}
-  .hero h1{font-size:44px;max-width:640px}
-  .hero h1 em{color:var(--gold);font-style:italic}
-  .hero p{max-width:520px;color:#c9d2de;margin:24px 0 32px;font-size:16px}
-  .btn-row{display:flex;gap:16px}
-  .btn-outline{border:1px solid rgba(255,255,255,0.4);color:var(--white);padding:10px 20px;border-radius:4px;text-decoration:none;font-size:14px}
-  section{padding:90px 0}
-  .section-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:0.15em;color:var(--signal);margin-bottom:16px}
-  .section-title{font-size:32px;max-width:620px;margin-bottom:20px}
-  .section-title em{color:var(--signal);font-style:italic}
-  .section-lead{max-width:640px;color:var(--ink-soft);font-size:16px}
-  .cards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--gold-soft);border:1px solid var(--gold-soft);margin-top:48px}
-  .card{background:var(--cream);padding:28px}
-  .card h3{font-size:18px;margin-bottom:8px;color:var(--navy)}
-  .card p{color:var(--ink-soft);font-size:14px}
-  .dark{background:var(--navy);color:var(--white)}
-  .dark .section-lead{color:#c9d2de}
-  .flow{display:flex;align-items:center;gap:12px;margin-top:48px;flex-wrap:wrap}
-  .flow-step{border:1px solid rgba(255,255,255,0.25);padding:14px 18px;font-family:var(--mono);font-size:12px;letter-spacing:0.05em}
-  .flow-step.active{background:var(--gold-soft);color:var(--navy-2);border-color:var(--gold-soft)}
-  .results{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--gold-soft);border:1px solid var(--gold-soft);margin-top:48px}
-  .results .card{background:var(--cream-2)}
-  .results .num{font-family:var(--mono);color:var(--gold);font-size:13px;margin-bottom:12px;display:block}
-  .contact{background:var(--navy);color:var(--white)}
-  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:16px}
-  form{display:grid;gap:16px}
-  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  input,textarea{background:var(--cream);border:none;border-radius:4px;padding:12px;font-family:var(--sans);font-size:14px;width:100%}
-  label{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--gold-soft);display:block;margin-bottom:6px}
-  footer{background:var(--navy-2);color:#8a94a6;padding:32px 0;font-size:13px}
-  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-  .reveal{opacity:0.55;transform:translateY(8px);transition:opacity .35s ease-out, transform .35s ease-out}
-  .reveal.in{opacity:1;transform:none}
-  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
-  @media(max-width:760px){.cards,.results,.contact-grid,.form-row{grid-template-columns:1fr}nav{display:none}.hero h1{font-size:32px}}
+  html{scroll-behavior:smooth}
+  body{font:400 16px/1.6 var(--sans);letter-spacing:0;color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:var(--serif);font-weight:500}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  img,svg{display:block}
 
-  /* Radar de Madurez */
-  .radar-box{margin-top:48px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:36px}
-  .radar-progress-track{background:rgba(255,255,255,0.12);border-radius:99px;height:6px;overflow:hidden;margin-bottom:8px}
-  .radar-progress-fill{background:var(--gold);height:100%;width:0%;transition:width .3s ease}
-  .radar-progress-label{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--gold-soft);margin-bottom:28px}
-  .radar-dim{font-family:var(--mono);font-size:11px;letter-spacing:0.15em;color:var(--signal);margin-bottom:10px}
-  .radar-question{font-family:var(--serif);font-size:22px;margin-bottom:28px;max-width:560px}
+  /* type scale — optical sizing per Apple: tighter tracking + leading on large text */
+  .display{font-size:clamp(2.6rem,5.6vw,4.4rem);line-height:1.02;letter-spacing:-0.025em}
+  .display-2{font-size:clamp(2rem,4vw,3rem);line-height:1.06;letter-spacing:-0.02em}
+  .title{font-size:clamp(1.3rem,2vw,1.6rem);line-height:1.22;letter-spacing:-0.01em}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase}
+  .lede{font-size:17px;line-height:1.65;color:var(--ink-soft);letter-spacing:0.001em}
+
+  /* press feedback — instant, per Apple §1 */
+  .press{transition:transform .12s var(--ease-spring)}
+  .press:active{transform:scale(.96)}
+
+  /* ---- header: translucent material, scrolls underneath ---- */
+  header.site{position:sticky;top:0;z-index:50;background:rgba(10,22,38,.68);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+  header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-family:var(--serif);font-size:19px;color:var(--white)}
+  .logo span{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;color:var(--gold-soft);margin-left:8px}
+  nav{display:flex;align-items:center;gap:2px}
+  nav a{color:rgba(255,255,255,.68);text-decoration:none;font-family:var(--mono);font-size:11.5px;letter-spacing:0.09em;padding:8px 14px;border-radius:6px;transition:color .2s var(--ease),background .2s var(--ease)}
+  nav a:hover{color:var(--white);background:rgba(255,255,255,.06)}
+  nav a.active{color:var(--gold-soft)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border:none;border-radius:8px;font-family:var(--mono);font-size:12px;letter-spacing:0.06em;cursor:pointer;text-decoration:none;white-space:nowrap}
+  .btn-gold{background:var(--gold);color:var(--navy-2);padding:11px 20px;font-weight:600}
+  .btn-gold:hover{background:#d1ae6c}
+  .btn-outline{border:1px solid rgba(255,255,255,.28);color:var(--white);padding:10px 19px;background:transparent}
+  .btn-outline:hover{border-color:rgba(255,255,255,.55)}
+  .btn-ghost{background:none;color:var(--ink-faint);padding:10px 4px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.08em}
+  .btn:disabled{opacity:.32;cursor:not-allowed}
+  nav .btn-gold{padding:9px 16px;margin-left:8px}
+  @media(max-width:820px){nav a:not(.btn-gold){display:none}}
+
+  /* ---- hero ---- */
+  .hero{background:radial-gradient(ellipse 120% 70% at 30% -10%,#182f4d,var(--navy) 55%,var(--navy-2));color:var(--white);padding:150px 0 130px;position:relative;overflow:hidden}
+  .hero::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 82% 18%,rgba(198,161,91,.14),transparent 45%)}
+  .hero .wrap{position:relative}
+  .hero .eyebrow{color:var(--gold-soft);margin-bottom:26px}
+  .hero h1{max-width:700px}
+  .hero h1 em{color:var(--gold);font-style:italic}
+  .hero p{max-width:520px;color:#c3cddc;margin:26px 0 36px;font-size:17px;line-height:1.65}
+  .btn-row{display:flex;gap:14px;flex-wrap:wrap}
+
+  section{padding:110px 0}
+  .section-eyebrow{color:var(--signal);margin-bottom:18px}
+  .section-title{max-width:640px;margin-bottom:22px}
+  .section-title em{color:var(--signal);font-style:italic}
+  .section-lede{max-width:600px}
+  .dark{background:var(--navy);color:var(--white)}
+  .dark .section-lede,.dark .lede{color:#c3cddc}
+  .dark .section-eyebrow{color:var(--gold-soft)}
+
+  /* ---- problem: editorial asymmetric layout ---- */
+  .problem-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;margin-top:56px;align-items:start}
+  .problem-list{display:grid;gap:0}
+  .problem-item{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:26px 0;border-top:1px solid var(--line)}
+  .problem-item:last-child{border-bottom:1px solid var(--line)}
+  .problem-item .mark{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.05em;padding-top:4px}
+  .problem-item h3{font-size:17px;margin-bottom:6px;letter-spacing:-0.005em}
+  .problem-item p{color:var(--ink-soft);font-size:14.5px;line-height:1.55}
+  .problem-pull{position:sticky;top:96px}
+  .problem-pull blockquote{font-family:var(--serif);font-size:clamp(1.5rem,2.6vw,2.1rem);font-style:italic;line-height:1.3;letter-spacing:-0.01em;color:var(--navy)}
+  .problem-pull cite{display:block;margin-top:20px;font-family:var(--mono);font-style:normal;font-size:11px;letter-spacing:0.1em;color:var(--ink-faint)}
+  @media(max-width:900px){.problem-grid{grid-template-columns:1fr}.problem-pull{position:static}}
+
+  /* ---- approach: timeline flow ---- */
+  .flow{position:relative;margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .flow::before{content:'';position:absolute;top:15px;left:0;right:0;height:1px;background:rgba(255,255,255,.16)}
+  .flow-step{position:relative;padding-top:44px}
+  .flow-step .dot{position:absolute;top:0;left:0;width:31px;height:31px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.6)}
+  .flow-step.active .dot{background:var(--gold);border-color:var(--gold);color:var(--navy-2);font-weight:600}
+  .flow-step h3{font-size:14.5px;font-family:var(--sans);font-weight:600;letter-spacing:0.01em;margin-bottom:6px}
+  .flow-step p{font-size:13px;color:#a9b4c6;max-width:200px}
+  @media(max-width:820px){.flow{grid-template-columns:1fr 1fr;row-gap:40px}}
+  @media(max-width:520px){.flow{grid-template-columns:1fr}}
+
+  /* ---- results ---- */
+  .results{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:56px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .r-card{background:var(--cream);padding:34px 30px;transition:background .25s var(--ease),transform .25s var(--ease)}
+  .r-card:hover{background:var(--white);transform:translateY(-2px)}
+  .r-card .num{font-family:var(--mono);color:var(--gold);font-size:12px;letter-spacing:.05em;display:block;margin-bottom:16px}
+  .r-card h3{font-size:17px;margin-bottom:8px;color:var(--navy);letter-spacing:-0.005em}
+  .r-card p{color:var(--ink-soft);font-size:14px;line-height:1.55}
+  @media(max-width:760px){.results{grid-template-columns:1fr}}
+
+  /* ---- radar: glass material on dark ---- */
+  .radar-box{margin-top:56px;background:rgba(255,255,255,.05);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 20px 50px -20px rgba(0,0,0,.5);border-radius:16px;padding:40px clamp(20px,4vw,48px)}
+  .radar-progress-track{background:rgba(255,255,255,.12);border-radius:99px;height:4px;overflow:hidden;margin-bottom:8px}
+  .radar-progress-fill{background:var(--gold);height:100%;width:0%;transition:width .45s var(--ease)}
+  .radar-progress-label{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--gold-soft);margin-bottom:32px}
+  .radar-step{transition:opacity .32s var(--ease),transform .32s var(--ease)}
+  .radar-step.switching{opacity:0;transform:translateY(6px)}
+  .radar-dim{font-family:var(--mono);font-size:11px;letter-spacing:0.15em;color:var(--signal);margin-bottom:12px}
+  .radar-question{font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,1.6rem);line-height:1.35;letter-spacing:-0.005em;margin-bottom:30px;max-width:560px}
   .scale{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-  .scale button{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,0.3);background:transparent;color:var(--white);font-family:var(--mono);font-size:13px;cursor:pointer;transition:background .15s,border-color .15s,transform .15s}
+  .scale button{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.26);background:transparent;color:var(--white);font-family:var(--mono);font-size:13px;cursor:pointer;transition:background .15s var(--ease),border-color .15s var(--ease),transform .12s var(--ease-spring)}
   .scale button:hover{border-color:var(--gold)}
-  .scale button.selected{background:var(--gold);border-color:var(--gold);color:var(--navy-2);font-weight:600;transform:scale(1.08)}
-  .scale-labels{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:#8a94a6;max-width:400px;margin-bottom:32px}
+  .scale button:active{transform:scale(.9)}
+  .scale button.selected{background:var(--gold);border-color:var(--gold);color:var(--navy-2);font-weight:600;transform:scale(1.06)}
+  .scale-labels{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:#7c869a;max-width:400px;margin-bottom:34px}
   .radar-nav{display:flex;justify-content:space-between;align-items:center}
-  .radar-nav .btn-text{background:none;border:none;color:var(--gold-soft);font-family:var(--mono);font-size:12px;letter-spacing:0.08em;cursor:pointer;padding:10px 4px}
-  .radar-nav .btn-text:disabled{opacity:0.3;cursor:not-allowed}
-  .radar-result h3{font-size:26px;margin-bottom:6px}
-  .radar-result .score{font-family:var(--mono);color:var(--gold);font-size:15px;margin-bottom:20px;display:block}
-  .radar-result p{color:#c9d2de;max-width:560px;margin-bottom:28px}
-  .radar-dims-summary{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.15);margin-bottom:28px;max-width:520px}
-  .radar-dims-summary div{background:var(--navy);padding:18px}
+  .radar-result h3{font-size:clamp(1.4rem,2.6vw,1.8rem);margin-bottom:8px;letter-spacing:-0.01em}
+  .radar-result .score{font-family:var(--mono);color:var(--gold);font-size:13px;letter-spacing:.05em;margin-bottom:22px;display:block}
+  .radar-result p{color:#c3cddc;max-width:560px;margin-bottom:30px;line-height:1.6}
+  .radar-dims-summary{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);border-radius:10px;overflow:hidden;margin-bottom:30px;max-width:480px}
+  .radar-dims-summary div{background:rgba(255,255,255,.03);padding:18px 20px}
   .radar-dims-summary .label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:var(--gold-soft);display:block;margin-bottom:6px}
-  .radar-dims-summary .val{font-family:var(--serif);font-size:24px}
+  .radar-dims-summary .val{font-family:var(--serif);font-size:26px}
   [hidden]{display:none!important}
 
-  /* IMA-4C */
-  .ima-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:start;margin-top:40px}
-  .ima-list{list-style:none;display:grid;gap:14px}
-  .ima-list li{display:flex;gap:14px;align-items:flex-start}
-  .ima-list li .n{font-family:var(--mono);color:var(--signal);font-size:12px;border:1px solid var(--signal);border-radius:50%;width:24px;height:24px;flex:none;display:flex;align-items:center;justify-content:center;margin-top:2px}
-  .ima-list li p{color:var(--ink-soft);font-size:15px}
-  .ima-list li strong{color:var(--navy);display:block;font-size:15px;margin-bottom:2px}
-  .ima-quote{background:var(--navy);color:var(--white);padding:32px;border-radius:8px;border-left:4px solid var(--gold)}
-  .ima-quote p{font-family:var(--serif);font-size:19px;font-style:italic;line-height:1.5}
-  .ima-quote cite{display:block;margin-top:16px;font-family:var(--mono);font-style:normal;font-size:11px;letter-spacing:0.1em;color:var(--gold-soft)}
-  @media(max-width:760px){.ima-grid{grid-template-columns:1fr}.radar-dims-summary{grid-template-columns:1fr}}
+  /* ---- ima-4c ---- */
+  .ima-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:start;margin-top:48px}
+  .ima-list{list-style:none;display:grid;gap:0}
+  .ima-list li{display:grid;grid-template-columns:30px 1fr;gap:16px;padding:20px 0;border-top:1px solid var(--line)}
+  .ima-list li:last-child{border-bottom:1px solid var(--line)}
+  .ima-list li .n{font-family:var(--mono);color:var(--signal);font-size:11.5px;border:1px solid var(--signal);border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+  .ima-list li p{color:var(--ink-soft);font-size:14.5px;line-height:1.55}
+  .ima-list li strong{color:var(--navy);display:block;font-size:15.5px;margin-bottom:3px;letter-spacing:-0.005em}
+  .ima-quote{position:sticky;top:96px;background:var(--navy);color:var(--white);padding:36px;border-radius:14px;border-left:3px solid var(--gold);background-image:radial-gradient(circle at 100% 0%,rgba(198,161,91,.14),transparent 55%)}
+  .ima-quote p{font-family:var(--serif);font-size:19px;font-style:italic;line-height:1.5;letter-spacing:-0.005em}
+  .ima-quote cite{display:block;margin-top:18px;font-family:var(--mono);font-style:normal;font-size:11px;letter-spacing:0.1em;color:var(--gold-soft)}
+  @media(max-width:900px){.ima-grid{grid-template-columns:1fr}.ima-quote{position:static}}
 
+  /* ---- methodology pull statement ---- */
+  .statement{background:var(--navy-2);color:var(--white);padding:130px 0}
+  .statement blockquote{font-family:var(--serif);font-size:clamp(1.6rem,3.4vw,2.5rem);line-height:1.3;letter-spacing:-0.015em;max-width:820px}
+  .statement blockquote strong{color:var(--gold);font-weight:500}
+
+  /* ---- contact ---- */
+  .contact{background:var(--navy)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-top:20px}
+  form{display:grid;gap:22px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .field{position:relative}
+  .field label{font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;color:var(--gold-soft);display:block;margin-bottom:8px}
+  input,textarea{background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.22);border-radius:0;padding:8px 2px;font-family:var(--sans);font-size:15px;width:100%;color:var(--white);transition:border-color .2s var(--ease)}
+  input::placeholder,textarea::placeholder{color:rgba(255,255,255,.32)}
+  input:focus,textarea:focus{outline:none;border-color:var(--gold)}
   .form-status{font-family:var(--mono);font-size:12px;letter-spacing:0.05em;min-height:18px;color:var(--gold-soft)}
+  .contact-meta{margin-top:28px;font-family:var(--mono);font-size:13px;color:#c3cddc}
+
+  /* ---- footer ---- */
+  footer{background:var(--navy-2);color:#8a94a6;padding:44px 0;font-size:13px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+  footer .foot-links{display:flex;gap:20px;font-family:var(--mono);font-size:11px;letter-spacing:.06em}
+  footer .foot-links a{text-decoration:none;color:#8a94a6;transition:color .2s var(--ease)}
+  footer .foot-links a:hover{color:var(--gold-soft)}
+
+  /* ---- scroll reveal — critically damped, no overshoot ---- */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal-stagger.in{transition-delay:calc(var(--i,0) * 70ms)}
+
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal,.radar-step{opacity:1!important;transform:none!important;transition:opacity .2s ease!important}
+    .press:active{transform:none}
+  }
+  @media(max-width:900px){
+    .results{grid-template-columns:1fr}
+    .contact-grid,.form-row{grid-template-columns:1fr}
+  }
+  @media(max-width:520px){
+    section{padding:80px 0}
+    .hero{padding:120px 0 90px}
+  }
 </style>
 </head>
 <body>
 
-<header>
+<header class="site">
   <div class="wrap">
     <div class="logo">Rentavalor <span>S.A.S.</span></div>
-    <nav>
-      <a href="#idea">El enfoque</a>
-      <a href="#radar">Diagnóstico</a>
-      <a href="#ima4c">Servicio</a>
-      <a href="#contacto" class="btn-gold">Diagnóstico gratis</a>
+    <nav id="siteNav">
+      <a href="#idea" data-sec="idea">El enfoque</a>
+      <a href="#radar" data-sec="radar">Diagnóstico</a>
+      <a href="#ima4c" data-sec="ima4c">Servicio</a>
+      <a href="#contacto" class="btn btn-gold press">Diagnóstico gratis</a>
     </nav>
   </div>
 </header>
 
 <section class="hero">
   <div class="wrap">
-    <div class="eyebrow">VALOR · PRUDENCIA · TIEMPO</div>
-    <h1 class="reveal">La inteligencia artificial no reemplaza el criterio. Lo <em>amplifica</em>.</h1>
+    <div class="eyebrow reveal">VALOR · PRUDENCIA · TIEMPO</div>
+    <h1 class="display reveal">La inteligencia artificial no reemplaza el criterio. Lo <em>amplifica</em>.</h1>
     <p class="reveal">Consultoría financiera con IA para empresas colombianas: automatizamos los procesos repetitivos que consumen tiempo y generan errores, para que tu equipo dedique ese tiempo a lo único que la IA no puede hacer — razonar.</p>
-    <div class="btn-row">
-      <a href="#radar" class="btn-gold">Haz tu diagnóstico gratis</a>
-      <a href="#idea" class="btn-outline">Conoce el enfoque</a>
+    <div class="btn-row reveal">
+      <a href="#radar" class="btn btn-gold press">Haz tu diagnóstico gratis</a>
+      <a href="#idea" class="btn btn-outline press">Conoce el enfoque</a>
     </div>
   </div>
 </section>
 
 <section id="idea">
   <div class="wrap">
-    <div class="section-eyebrow">EL PROBLEMA REAL</div>
-    <h2 class="section-title reveal">Tu equipo es capaz. Lo que le falta no es talento, es <em>tiempo</em>.</h2>
-    <p class="section-lead reveal">En la mayoría de las empresas, las personas más valiosas pasan el día en tareas que no exigen su criterio. El resultado es predecible: se agota el tiempo, se acumulan los errores, y las decisiones importantes quedan para "cuando haya un rato".</p>
-    <div class="cards">
-      <div class="card reveal"><h3>Horas atrapadas en lo repetitivo</h3><p>Cierres, conciliaciones, reportes, captura de datos: trabajo manual que se repite semana tras semana y no deja avanzar.</p></div>
-      <div class="card reveal"><h3>Errores que cuestan</h3><p>Lo repetitivo y manual es donde más se equivoca la gente. Cada error es reproceso, tiempo perdido y riesgo para el negocio.</p></div>
-      <div class="card reveal"><h3>Sin espacio para pensar</h3><p>Cuando el equipo vive apagando incendios, nadie tiene cabeza para mejorar, planear o decidir con estrategia.</p></div>
-      <div class="card reveal"><h3>El miedo a la IA</h3><p>Muchos temen que automatizar signifique recortar personal. Es la lectura equivocada, y frena a empresas que podrían crecer.</p></div>
+    <div class="section-eyebrow eyebrow reveal">EL PROBLEMA REAL</div>
+    <h2 class="display-2 section-title reveal">Tu equipo es capaz. Lo que le falta no es talento, es <em style="color:var(--signal);font-style:italic">tiempo</em>.</h2>
+
+    <div class="problem-grid">
+      <div class="problem-pull reveal">
+        <blockquote>"Las personas más valiosas de tu empresa pasan el día en tareas que no exigen su criterio."</blockquote>
+        <cite>ES EL PATRÓN MÁS COMÚN QUE ENCONTRAMOS AL DIAGNOSTICAR PYMES COLOMBIANAS</cite>
+      </div>
+      <div class="problem-list">
+        <div class="problem-item reveal"><span class="mark">01</span><div><h3>Horas atrapadas en lo repetitivo</h3><p>Cierres, conciliaciones, reportes, captura de datos: trabajo manual que se repite semana tras semana y no deja avanzar.</p></div></div>
+        <div class="problem-item reveal"><span class="mark">02</span><div><h3>Errores que cuestan</h3><p>Lo repetitivo y manual es donde más se equivoca la gente. Cada error es reproceso, tiempo perdido y riesgo para el negocio.</p></div></div>
+        <div class="problem-item reveal"><span class="mark">03</span><div><h3>Sin espacio para pensar</h3><p>Cuando el equipo vive apagando incendios, nadie tiene cabeza para mejorar, planear o decidir con estrategia.</p></div></div>
+        <div class="problem-item reveal"><span class="mark">04</span><div><h3>El miedo a la IA</h3><p>Muchos temen que automatizar signifique recortar personal. Es la lectura equivocada, y frena a empresas que podrían crecer.</p></div></div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="dark">
   <div class="wrap">
-    <div class="section-eyebrow">NUESTRO ENFOQUE</div>
-    <h2 class="section-title reveal">Automatizamos lo repetitivo para liberar lo <em>irremplazable</em>.</h2>
-    <p class="section-lead reveal">No reemplazamos personas. Le quitamos a tu equipo el trabajo repetitivo que consume tiempo y produce errores, y ese tiempo recuperado se reinvierte donde de verdad genera valor: en el razonamiento humano. Porque una máquina ejecuta, pero solo tu gente piensa, decide y crea.</p>
-    <div class="flow">
-      <div class="flow-step reveal">PROCESOS REPETITIVOS</div>
-      <div class="flow-step reveal">AUTOMATIZACIÓN CON IA</div>
-      <div class="flow-step reveal">TIEMPO RECUPERADO</div>
-      <div class="flow-step active reveal">RAZONAMIENTO HUMANO</div>
+    <div class="section-eyebrow eyebrow reveal">NUESTRO ENFOQUE</div>
+    <h2 class="display-2 section-title reveal">Automatizamos lo repetitivo para liberar lo <em>irremplazable</em>.</h2>
+    <p class="lede section-lede reveal">No reemplazamos personas. Le quitamos a tu equipo el trabajo repetitivo que consume tiempo y produce errores, y ese tiempo recuperado se reinvierte donde de verdad genera valor: en el razonamiento humano. Porque una máquina ejecuta, pero solo tu gente piensa, decide y crea.</p>
+    <div class="flow reveal">
+      <div class="flow-step"><span class="dot">1</span><h3>Procesos repetitivos</h3><p>Diagnosticamos dónde se va el tiempo hoy.</p></div>
+      <div class="flow-step"><span class="dot">2</span><h3>Automatización con IA</h3><p>Diseñamos e implementamos la solución puntual.</p></div>
+      <div class="flow-step"><span class="dot">3</span><h3>Tiempo recuperado</h3><p>Se libera capacidad real, medible en horas.</p></div>
+      <div class="flow-step active"><span class="dot">4</span><h3>Razonamiento humano</h3><p>Tu equipo lo reinvierte en lo que sí solo ellos pueden hacer.</p></div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <h2 class="section-title reveal">Resultados que se miden y se sienten.</h2>
+    <h2 class="display-2 section-title reveal">Resultados que se miden y se sienten.</h2>
     <div class="results">
-      <div class="card reveal"><span class="num">01</span><h3>Tiempo liberado</h3><p>Las tareas repetitivas se automatizan y tu equipo recupera horas para lo que importa.</p></div>
-      <div class="card reveal"><span class="num">02</span><h3>Menos errores</h3><p>Los procesos automatizados no se distraen ni se cansan: bajan los reprocesos y el riesgo.</p></div>
-      <div class="card reveal"><span class="num">03</span><h3>Decisiones con datos</h3><p>Información ordenada y a tiempo para que lideres con certeza, no con intuición.</p></div>
-      <div class="card reveal"><span class="num">04</span><h3>Equipo potenciado</h3><p>Tu gente dedica su criterio a estrategia, clientes y mejora, no a tareas mecánicas.</p></div>
-      <div class="card reveal"><span class="num">05</span><h3>Adopción sin miedo</h3><p>Empezamos por lo simple que da resultado y escalamos con prudencia, sin sobresaltos.</p></div>
-      <div class="card reveal"><span class="num">06</span><h3>Acompañamiento real</h3><p>Te acompañamos en la ejecución como socio, no como una consultoría que entrega y se va.</p></div>
+      <div class="r-card reveal"><span class="num">01</span><h3>Tiempo liberado</h3><p>Las tareas repetitivas se automatizan y tu equipo recupera horas para lo que importa.</p></div>
+      <div class="r-card reveal"><span class="num">02</span><h3>Menos errores</h3><p>Los procesos automatizados no se distraen ni se cansan: bajan los reprocesos y el riesgo.</p></div>
+      <div class="r-card reveal"><span class="num">03</span><h3>Decisiones con datos</h3><p>Información ordenada y a tiempo para que lideres con certeza, no con intuición.</p></div>
+      <div class="r-card reveal"><span class="num">04</span><h3>Equipo potenciado</h3><p>Tu gente dedica su criterio a estrategia, clientes y mejora, no a tareas mecánicas.</p></div>
+      <div class="r-card reveal"><span class="num">05</span><h3>Adopción sin miedo</h3><p>Empezamos por lo simple que da resultado y escalamos con prudencia, sin sobresaltos.</p></div>
+      <div class="r-card reveal"><span class="num">06</span><h3>Acompañamiento real</h3><p>Te acompañamos en la ejecución como socio, no como una consultoría que entrega y se va.</p></div>
     </div>
   </div>
 </section>
 
 <section id="radar" class="dark">
   <div class="wrap">
-    <div class="section-eyebrow">RADAR DE MADUREZ · DIAGNÓSTICO GRATUITO</div>
-    <h2 class="section-title reveal">¿Cuánto tiempo y razonamiento está perdiendo tu empresa?</h2>
-    <p class="section-lead reveal">Seis preguntas rápidas, en escala de 1 a 10, en dos dimensiones. Al final recibes tu lectura al instante y, si quieres, el análisis completo por WhatsApp. Sin costo y sin compromiso.</p>
+    <div class="section-eyebrow eyebrow reveal">RADAR DE MADUREZ · DIAGNÓSTICO GRATUITO</div>
+    <h2 class="display-2 section-title reveal">¿Cuánto tiempo y razonamiento está perdiendo tu empresa?</h2>
+    <p class="lede section-lede reveal">Seis preguntas rápidas, en escala de 1 a 10, en dos dimensiones. Al final recibes tu lectura al instante y, si quieres, el análisis completo por WhatsApp. Sin costo y sin compromiso.</p>
 
     <div class="radar-box reveal" id="radarApp">
-
-      <!-- Progress -->
       <div id="radarProgressWrap">
         <div class="radar-progress-track"><div class="radar-progress-fill" id="radarProgressFill"></div></div>
         <div class="radar-progress-label" id="radarProgressLabel">0/6 RESPONDIDAS</div>
       </div>
 
-      <!-- Question step -->
-      <div id="radarQuestionStep">
+      <div id="radarQuestionStep" class="radar-step">
         <div class="radar-dim" id="radarDimLabel"></div>
         <div class="radar-question" id="radarQuestionText"></div>
         <div class="scale" id="radarScale"></div>
         <div class="scale-labels"><span>1 · Nada de acuerdo</span><span>10 · Totalmente de acuerdo</span></div>
         <div class="radar-nav">
-          <button type="button" class="btn-text" id="radarPrev">← ANTERIOR</button>
-          <button type="button" class="btn-text" id="radarNext" disabled>SIGUIENTE →</button>
+          <button type="button" class="btn btn-ghost press" id="radarPrev">← ANTERIOR</button>
+          <button type="button" class="btn btn-ghost press" id="radarNext" disabled>SIGUIENTE →</button>
         </div>
       </div>
 
-      <!-- Result step -->
-      <div id="radarResultStep" hidden>
+      <div id="radarResultStep" class="radar-step" hidden>
         <div class="radar-result">
           <span class="score" id="radarScoreLabel"></span>
           <h3 id="radarResultTitle"></h3>
@@ -206,26 +296,25 @@
             <div><span class="label">MADUREZ EN IA</span><span class="val" id="radarDimMadurez"></span></div>
           </div>
           <div class="btn-row">
-            <a href="#contacto" class="btn-gold" id="radarCta">Recibir análisis completo por WhatsApp</a>
-            <button type="button" class="btn-outline" id="radarRestart" style="background:none">Repetir diagnóstico</button>
+            <a href="#contacto" class="btn btn-gold press" id="radarCta">Recibir análisis completo por WhatsApp</a>
+            <button type="button" class="btn btn-outline press" id="radarRestart">Repetir diagnóstico</button>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 <section id="ima4c">
   <div class="wrap">
-    <div class="section-eyebrow">EL SIGUIENTE PASO</div>
-    <h2 class="section-title reveal">Del radar gratuito al diagnóstico profundo.</h2>
-    <h3 class="reveal">Diagnóstico <em style="color:var(--gold);font-style:italic">IMA-4C</em></h3>
-    <p class="section-lead reveal">El Radar de arriba te da una primera lectura. El IMA-4C es el diagnóstico completo y estructurado: mapea, en tu empresa concreta, dónde la inteligencia artificial puede crear valor financiero y operativo real.</p>
+    <div class="section-eyebrow eyebrow reveal">EL SIGUIENTE PASO</div>
+    <h2 class="display-2 section-title reveal">Del radar gratuito al diagnóstico profundo.</h2>
+    <h3 class="title reveal">Diagnóstico <em style="color:var(--gold);font-style:italic">IMA-4C</em></h3>
+    <p class="lede section-lede reveal" style="margin-top:14px">El Radar de arriba te da una primera lectura. El IMA-4C es el diagnóstico completo y estructurado: mapea, en tu empresa concreta, dónde la inteligencia artificial puede crear valor financiero y operativo real.</p>
 
     <div class="ima-grid">
       <div class="reveal">
-        <div class="section-eyebrow" style="margin-top:8px">QUÉ RECIBE</div>
+        <div class="section-eyebrow eyebrow" style="margin-top:12px;margin-bottom:8px">QUÉ RECIBE</div>
         <ul class="ima-list">
           <li><span class="n">1</span><p><strong>Mapa priorizado de oportunidades</strong>Identificamos, proceso por proceso, dónde la IA puede generar más valor en tu empresa.</p></li>
           <li><span class="n">2</span><p><strong>Quick wins</strong>Acciones de bajo esfuerzo y alto impacto que puedes empezar a implementar de inmediato.</p></li>
@@ -244,42 +333,41 @@
   </div>
 </section>
 
-<section class="dark">
+<section class="statement">
   <div class="wrap">
-    <h2 class="section-title reveal">Rigor metodológico, no improvisación.</h2>
-    <p class="section-lead reveal">Somos <strong>certificados en el Método 4C® de la Academia de IA®</strong>. Trabajamos con una metodología estructurada de adopción de IA: diagnóstico antes que tecnología, resultados medibles en un horizonte de 90 a 180 días, y transferencia de conocimiento para que tu empresa no dependa de nosotros, sino que aprenda a caminar sola.</p>
+    <blockquote class="reveal">Somos <strong>certificados en el Método 4C® de la Academia de IA®</strong>. Trabajamos con una metodología estructurada de adopción de IA: diagnóstico antes que tecnología, resultados medibles en un horizonte de 90 a 180 días, y transferencia de conocimiento para que tu empresa no dependa de nosotros, sino que aprenda a caminar sola.</blockquote>
   </div>
 </section>
 
 <section class="dark">
   <div class="wrap">
-    <div class="eyebrow">VALOR · PRUDENCIA · TIEMPO</div>
-    <h2 class="section-title reveal">Una casa financiera con criterio, potenciada por tecnología.</h2>
-    <p class="section-lead reveal">Rentavalor S.A.S. es la entidad principal de un grupo empresarial con raíces en la asesoría financiera colombiana. Sobre esa base construimos la línea AI-First: la misma prudencia de siempre, con las herramientas de hoy.</p>
+    <div class="eyebrow reveal" style="color:var(--gold-soft)">VALOR · PRUDENCIA · TIEMPO</div>
+    <h2 class="display-2 section-title reveal">Una casa financiera con criterio, potenciada por tecnología.</h2>
+    <p class="lede section-lede reveal">Rentavalor S.A.S. es la entidad principal de un grupo empresarial con raíces en la asesoría financiera colombiana. Sobre esa base construimos la línea AI-First: la misma prudencia de siempre, con las herramientas de hoy.</p>
   </div>
 </section>
 
 <section id="contacto" class="contact">
   <div class="wrap contact-grid">
     <div>
-      <div class="section-eyebrow">HABLEMOS</div>
-      <h2 class="section-title reveal">Demos el primer paso.</h2>
-      <p class="section-lead reveal">Cuéntanos sobre tu empresa y coordinamos tu diagnóstico. Respondemos de forma personal, no automática.</p>
-      <p style="margin-top:24px;font-family:var(--mono);font-size:13px">Correo: dvelez@rentavalor.com</p>
+      <div class="section-eyebrow eyebrow reveal" style="color:var(--gold-soft)">HABLEMOS</div>
+      <h2 class="display-2 section-title reveal" style="color:var(--white)">Demos el primer paso.</h2>
+      <p class="lede reveal">Cuéntanos sobre tu empresa y coordinamos tu diagnóstico. Respondemos de forma personal, no automática.</p>
+      <p class="contact-meta reveal">Correo: dvelez@rentavalor.com</p>
     </div>
-    <form id="contactForm" name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <form id="contactForm" name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="reveal">
       <input type="hidden" name="form-name" value="contacto">
       <p hidden><label>No llenar: <input name="bot-field"></label></p>
       <div class="form-row">
-        <div><label for="f-nombre">NOMBRE</label><input type="text" id="f-nombre" name="nombre" required></div>
-        <div><label for="f-empresa">EMPRESA</label><input type="text" id="f-empresa" name="empresa" required></div>
+        <div class="field"><label for="f-nombre">NOMBRE</label><input type="text" id="f-nombre" name="nombre" required></div>
+        <div class="field"><label for="f-empresa">EMPRESA</label><input type="text" id="f-empresa" name="empresa" required></div>
       </div>
       <div class="form-row">
-        <div><label for="f-cargo">CARGO</label><input type="text" id="f-cargo" name="cargo"></div>
-        <div><label for="f-whatsapp">WHATSAPP</label><input type="text" id="f-whatsapp" name="whatsapp" required></div>
+        <div class="field"><label for="f-cargo">CARGO</label><input type="text" id="f-cargo" name="cargo"></div>
+        <div class="field"><label for="f-whatsapp">WHATSAPP</label><input type="text" id="f-whatsapp" name="whatsapp" required></div>
       </div>
-      <div><label for="f-proceso">¿QUÉ PROCESO TE ESTÁ ROBANDO MÁS TIEMPO HOY?</label><textarea rows="3" id="f-proceso" name="proceso"></textarea></div>
-      <button type="submit" class="btn-gold" id="contactSubmit">Enviar por WhatsApp</button>
+      <div class="field"><label for="f-proceso">¿QUÉ PROCESO TE ESTÁ ROBANDO MÁS TIEMPO HOY?</label><textarea rows="3" id="f-proceso" name="proceso"></textarea></div>
+      <button type="submit" class="btn btn-gold press" id="contactSubmit" style="justify-self:start">Enviar por WhatsApp</button>
       <div class="form-status" id="contactStatus"></div>
     </form>
   </div>
@@ -287,18 +375,37 @@
 
 <footer>
   <div class="wrap">
-    <span>Valor · Prudencia · Tiempo</span>
-    <span>Rentavalor S.A.S. · Finanzas potenciadas por IA · Medellín, Colombia</span>
+    <span>Valor · Prudencia · Tiempo — Rentavalor S.A.S. · Finanzas potenciadas por IA · Medellín, Colombia</span>
+    <div class="foot-links">
+      <a href="#idea">EL ENFOQUE</a>
+      <a href="#radar">DIAGNÓSTICO</a>
+      <a href="#contacto">CONTACTO</a>
+    </div>
   </div>
 </footer>
 
 <script>
-  // ---- Scroll reveal ----
-  var els = document.querySelectorAll('.reveal');
-  var io = new IntersectionObserver(function(entries){
+  // ---- Scroll reveal (critically damped: opacity+translateY, no overshoot) ----
+  var revealEls = document.querySelectorAll('.reveal');
+  var revealIO = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if (e.isIntersecting) e.target.classList.add('in'); });
   }, {threshold:0.15});
-  els.forEach(function(el){ io.observe(el); });
+  revealEls.forEach(function(el){ revealIO.observe(el); });
+
+  // ---- Active nav link tracks scroll position (wayfinding) ----
+  (function(){
+    var navLinks = document.querySelectorAll('#siteNav a[data-sec]');
+    var sections = Array.prototype.map.call(navLinks, function(a){ return document.getElementById(a.dataset.sec); }).filter(Boolean);
+    if (!sections.length) return;
+    var sectionIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          navLinks.forEach(function(a){ a.classList.toggle('active', a.dataset.sec === entry.target.id); });
+        }
+      });
+    }, {rootMargin:'-40% 0px -50% 0px'});
+    sections.forEach(function(s){ sectionIO.observe(s); });
+  })();
 
   // ---- Radar de Madurez ----
   (function(){
@@ -313,6 +420,7 @@
 
     var answers = new Array(questions.length).fill(null);
     var current = 0;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     var progressFill = document.getElementById('radarProgressFill');
     var progressLabel = document.getElementById('radarProgressLabel');
@@ -347,7 +455,7 @@
       }
     }
 
-    function renderQuestion(){
+    function paintQuestion(){
       var q = questions[current];
       dimLabelEl.textContent = q.dimLabel;
       questionTextEl.textContent = q.text;
@@ -359,6 +467,16 @@
       var pct = Math.round((answeredCount() / questions.length) * 100);
       progressFill.style.width = pct + '%';
       progressLabel.textContent = answeredCount() + '/' + questions.length + ' RESPONDIDAS';
+    }
+
+    // interruptible-feeling transition: fade out briefly, paint, fade in — never blocks input
+    function renderQuestion(){
+      if (reduceMotion){ paintQuestion(); return; }
+      questionStep.classList.add('switching');
+      window.setTimeout(function(){
+        paintQuestion();
+        questionStep.classList.remove('switching');
+      }, 140);
     }
 
     prevBtn.addEventListener('click', function(){
@@ -419,10 +537,10 @@
       resultStep.hidden = true;
       document.getElementById('radarProgressWrap').hidden = false;
       questionStep.hidden = false;
-      renderQuestion();
+      paintQuestion();
     });
 
-    renderQuestion();
+    paintQuestion();
   })();
 
   // ---- Contact form: Netlify Forms backup + WhatsApp redirect ----
