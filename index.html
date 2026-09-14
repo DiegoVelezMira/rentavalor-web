@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rentavalor · Finanzas potenciadas por IA para PYMES colombianas</title>
+<meta name="description" content="La IA no reemplaza el criterio financiero: lo amplifica. Automatizamos lo repetitivo para que tu equipo recupere tiempo y potencie lo que la IA no puede hacer: razonar. Haz tu diagnóstico gratis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#132844;--navy-2:#0d1c31;--signal:#2f6db5;--gold:#c6a15b;--gold-soft:#d8cfb8;
+    --cream:#f5f1e8;--cream-2:#efe9db;--ink:#1a1d24;--ink-soft:#4a4f5a;--white:#ffffff;
+    --maxw:1140px;--serif:'Spectral',Georgia,serif;--sans:'IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.6}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.15}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  header{background:var(--navy);color:var(--white);padding:20px 0}
+  header .wrap{display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:var(--serif);font-size:20px}
+  .logo span{font-family:var(--mono);font-size:11px;letter-spacing:0.15em;color:var(--gold-soft);margin-left:8px}
+  nav a{color:var(--white);text-decoration:none;font-family:var(--mono);font-size:12px;letter-spacing:0.1em;margin-left:28px}
+  .btn-gold{background:var(--gold);color:var(--navy-2);padding:10px 20px;border-radius:4px;font-family:var(--mono);font-size:12px;letter-spacing:0.08em;text-decoration:none;font-weight:600}
+  .hero{background:var(--navy);color:var(--white);padding:110px 0}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:0.2em;color:var(--gold-soft);margin-bottom:24px}
+  .hero h1{font-size:44px;max-width:640px}
+  .hero h1 em{color:var(--gold);font-style:italic}
+  .hero p{max-width:520px;color:#c9d2de;margin:24px 0 32px;font-size:16px}
+  .btn-row{display:flex;gap:16px}
+  .btn-outline{border:1px solid rgba(255,255,255,0.4);color:var(--white);padding:10px 20px;border-radius:4px;text-decoration:none;font-size:14px}
+  section{padding:90px 0}
+  .section-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:0.15em;color:var(--signal);margin-bottom:16px}
+  .section-title{font-size:32px;max-width:620px;margin-bottom:20px}
+  .section-title em{color:var(--signal);font-style:italic}
+  .section-lead{max-width:640px;color:var(--ink-soft);font-size:16px}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--gold-soft);border:1px solid var(--gold-soft);margin-top:48px}
+  .card{background:var(--cream);padding:28px}
+  .card h3{font-size:18px;margin-bottom:8px;color:var(--navy)}
+  .card p{color:var(--ink-soft);font-size:14px}
+  .dark{background:var(--navy);color:var(--white)}
+  .dark .section-lead{color:#c9d2de}
+  .flow{display:flex;align-items:center;gap:12px;margin-top:48px;flex-wrap:wrap}
+  .flow-step{border:1px solid rgba(255,255,255,0.25);padding:14px 18px;font-family:var(--mono);font-size:12px;letter-spacing:0.05em}
+  .flow-step.active{background:var(--gold-soft);color:var(--navy-2);border-color:var(--gold-soft)}
+  .results{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--gold-soft);border:1px solid var(--gold-soft);margin-top:48px}
+  .results .card{background:var(--cream-2)}
+  .results .num{font-family:var(--mono);color:var(--gold);font-size:13px;margin-bottom:12px;display:block}
+  .contact{background:var(--navy);color:var(--white)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:16px}
+  form{display:grid;gap:16px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  input,textarea{background:var(--cream);border:none;border-radius:4px;padding:12px;font-family:var(--sans);font-size:14px}
+  label{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--gold-soft);display:block;margin-bottom:6px}
+  footer{background:var(--navy-2);color:#8a94a6;padding:32px 0;font-size:13px;display:flex;justify-content:space-between}
+  .reveal{opacity:0.55;transform:translateY(8px);transition:opacity .35s ease-out, transform .35s ease-out}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+  @media(max-width:760px){.cards,.results,.contact-grid,.form-row{grid-template-columns:1fr}nav{display:none}.hero h1{font-size:32px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">Rentavalor <span>S.A.S.</span></div>
+    <nav>
+      <a href="#idea">El enfoque</a>
+      <a href="#radar">Diagnóstico</a>
+      <a href="#ima4c">Servicio</a>
+      <a href="#contacto" class="btn-gold">Diagnóstico gratis</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">VALOR · PRUDENCIA · TIEMPO</div>
+    <h1 class="reveal">La inteligencia artificial no reemplaza el criterio. Lo <em>amplifica</em>.</h1>
+    <p class="reveal">Consultoría financiera con IA para empresas colombianas: automatizamos los procesos repetitivos que consumen tiempo y generan errores, para que tu equipo dedique ese tiempo a lo único que la IA no puede hacer — razonar.</p>
+    <div class="btn-row">
+      <a href="#radar" class="btn-gold">Haz tu diagnóstico gratis</a>
+      <a href="#idea" class="btn-outline">Conoce el enfoque</a>
+    </div>
+  </div>
+</section>
+
+<section id="idea">
+  <div class="wrap">
+    <div class="section-eyebrow">EL PROBLEMA REAL</div>
+    <h2 class="section-title reveal">Tu equipo es capaz. Lo que le falta no es talento, es <em>tiempo</em>.</h2>
+    <p class="section-lead reveal">En la mayoría de las empresas, las personas más valiosas pasan el día en tareas que no exigen su criterio. El resultado es predecible: se agota el tiempo, se acumulan los errores, y las decisiones importantes quedan para "cuando haya un rato".</p>
+    <div class="cards">
+      <div class="card reveal"><h3>Horas atrapadas en lo repetitivo</h3><p>Cierres, conciliaciones, reportes, captura de datos: trabajo manual que se repite semana tras semana y no deja avanzar.</p></div>
+      <div class="card reveal"><h3>Errores que cuestan</h3><p>Lo repetitivo y manual es donde más se equivoca la gente. Cada error es reproceso, tiempo perdido y riesgo para el negocio.</p></div>
+      <div class="card reveal"><h3>Sin espacio para pensar</h3><p>Cuando el equipo vive apagando incendios, nadie tiene cabeza para mejorar, planear o decidir con estrategia.</p></div>
+      <div class="card reveal"><h3>El miedo a la IA</h3><p>Muchos temen que automatizar signifique recortar personal. Es la lectura equivocada, y frena a empresas que podrían crecer.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="section-eyebrow">NUESTRO ENFOQUE</div>
+    <h2 class="section-title reveal">Automatizamos lo repetitivo para liberar lo <em>irremplazable</em>.</h2>
+    <p class="section-lead reveal">No reemplazamos personas. Le quitamos a tu equipo el trabajo repetitivo que consume tiempo y produce errores, y ese tiempo recuperado se reinvierte donde de verdad genera valor: en el razonamiento humano. Porque una máquina ejecuta, pero solo tu gente piensa, decide y crea.</p>
+    <div class="flow">
+      <div class="flow-step reveal">PROCESOS REPETITIVOS</div>
+      <div class="flow-step reveal">AUTOMATIZACIÓN CON IA</div>
+      <div class="flow-step reveal">TIEMPO RECUPERADO</div>
+      <div class="flow-step active reveal">RAZONAMIENTO HUMANO</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="section-title reveal">Resultados que se miden y se sienten.</h2>
+    <div class="results">
+      <div class="card reveal"><span class="num">01</span><h3>Tiempo liberado</h3><p>Las tareas repetitivas se automatizan y tu equipo recupera horas para lo que importa.</p></div>
+      <div class="card reveal"><span class="num">02</span><h3>Menos errores</h3><p>Los procesos automatizados no se distraen ni se cansan: bajan los reprocesos y el riesgo.</p></div>
+      <div class="card reveal"><span class="num">03</span><h3>Decisiones con datos</h3><p>Información ordenada y a tiempo para que lideres con certeza, no con intuición.</p></div>
+      <div class="card reveal"><span class="num">04</span><h3>Equipo potenciado</h3><p>Tu gente dedica su criterio a estrategia, clientes y mejora, no a tareas mecánicas.</p></div>
+      <div class="card reveal"><span class="num">05</span><h3>Adopción sin miedo</h3><p>Empezamos por lo simple que da resultado y escalamos con prudencia, sin sobresaltos.</p></div>
+      <div class="card reveal"><span class="num">06</span><h3>Acompañamiento real</h3><p>Te acompañamos en la ejecución como socio, no como una consultoría que entrega y se va.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="radar" class="dark">
+  <div class="wrap">
+    <div class="section-eyebrow">RADAR DE MADUREZ · DIAGNÓSTICO GRATUITO</div>
+    <h2 class="section-title reveal">¿Cuánto tiempo y razonamiento está perdiendo tu empresa?</h2>
+    <p class="section-lead reveal">Seis preguntas rápidas, en escala de 1 a 10, en dos dimensiones. Al final recibes tu lectura al instante y, si quieres, el análisis completo por WhatsApp. Sin costo y sin compromiso.</p>
+  </div>
+</section>
+
+<section id="ima4c">
+  <div class="wrap">
+    <div class="section-eyebrow">EL SIGUIENTE PASO</div>
+    <h2 class="section-title reveal">Del radar gratuito al diagnóstico profundo.</h2>
+    <h3 class="reveal">Diagnóstico <em style="color:var(--gold);font-style:italic">IMA-4C</em></h3>
+    <p class="section-lead reveal">El Radar de arriba te da una primera lectura. El IMA-4C es el diagnóstico completo y estructurado: mapea, en tu empresa concreta, dónde la inteligencia artificial puede crear valor financiero y operativo real.</p>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <h2 class="section-title reveal">Rigor metodológico, no improvisación.</h2>
+    <p class="section-lead reveal">Somos <strong>certificados en el Método 4C® de la Academia de IA®</strong>. Trabajamos con una metodología estructurada de adopción de IA: diagnóstico antes que tecnología, resultados medibles en un horizonte de 90 a 180 días, y transferencia de conocimiento para que tu empresa no dependa de nosotros, sino que aprenda a caminar sola.</p>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="eyebrow">VALOR · PRUDENCIA · TIEMPO</div>
+    <h2 class="section-title reveal">Una casa financiera con criterio, potenciada por tecnología.</h2>
+    <p class="section-lead reveal">Rentavalor S.A.S. es la entidad principal de un grupo empresarial con raíces en la asesoría financiera colombiana. Sobre esa base construimos la línea AI-First: la misma prudencia de siempre, con las herramientas de hoy.</p>
+  </div>
+</section>
+
+<section id="contacto" class="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="section-eyebrow">HABLEMOS</div>
+      <h2 class="section-title reveal">Demos el primer paso.</h2>
+      <p class="section-lead reveal">Cuéntanos sobre tu empresa y coordinamos tu diagnóstico. Respondemos de forma personal, no automática.</p>
+      <p style="margin-top:24px;font-family:var(--mono);font-size:13px">Correo: dvelez@rentavalor.com</p>
+    </div>
+    <form>
+      <div class="form-row">
+        <div><label>NOMBRE</label><input type="text"></div>
+        <div><label>EMPRESA</label><input type="text"></div>
+      </div>
+      <div class="form-row">
+        <div><label>CARGO</label><input type="text"></div>
+        <div><label>WHATSAPP</label><input type="text"></div>
+      </div>
+      <div><label>¿QUÉ PROCESO TE ESTÁ ROBANDO MÁS TIEMPO HOY?</label><textarea rows="3"></textarea></div>
+      <button type="submit" class="btn-gold" style="border:none;cursor:pointer">Enviar por WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between">
+    <span>Valor · Prudencia · Tiempo</span>
+    <span>Rentavalor S.A.S. · Finanzas potenciadas por IA · Medellín, Colombia</span>
+  </div>
+</footer>
+
+<script>
+  var els = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting) e.target.classList.add('in'); });
+  }, {threshold:0.15});
+  els.forEach(function(el){ io.observe(el); });
+</script>
+
+</body>
+</html>
