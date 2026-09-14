@@ -23,7 +23,8 @@
   .logo{font-family:var(--serif);font-size:20px}
   .logo span{font-family:var(--mono);font-size:11px;letter-spacing:0.15em;color:var(--gold-soft);margin-left:8px}
   nav a{color:var(--white);text-decoration:none;font-family:var(--mono);font-size:12px;letter-spacing:0.1em;margin-left:28px}
-  .btn-gold{background:var(--gold);color:var(--navy-2);padding:10px 20px;border-radius:4px;font-family:var(--mono);font-size:12px;letter-spacing:0.08em;text-decoration:none;font-weight:600}
+  .btn-gold{background:var(--gold);color:var(--navy-2);padding:10px 20px;border-radius:4px;font-family:var(--mono);font-size:12px;letter-spacing:0.08em;text-decoration:none;font-weight:600;border:none;cursor:pointer;display:inline-block}
+  .btn-gold:disabled{opacity:0.5;cursor:not-allowed}
   .hero{background:var(--navy);color:var(--white);padding:110px 0}
   .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:0.2em;color:var(--gold-soft);margin-bottom:24px}
   .hero h1{font-size:44px;max-width:640px}
@@ -52,13 +53,52 @@
   .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:16px}
   form{display:grid;gap:16px}
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  input,textarea{background:var(--cream);border:none;border-radius:4px;padding:12px;font-family:var(--sans);font-size:14px}
+  input,textarea{background:var(--cream);border:none;border-radius:4px;padding:12px;font-family:var(--sans);font-size:14px;width:100%}
   label{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--gold-soft);display:block;margin-bottom:6px}
-  footer{background:var(--navy-2);color:#8a94a6;padding:32px 0;font-size:13px;display:flex;justify-content:space-between}
+  footer{background:var(--navy-2);color:#8a94a6;padding:32px 0;font-size:13px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
   .reveal{opacity:0.55;transform:translateY(8px);transition:opacity .35s ease-out, transform .35s ease-out}
   .reveal.in{opacity:1;transform:none}
   @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
   @media(max-width:760px){.cards,.results,.contact-grid,.form-row{grid-template-columns:1fr}nav{display:none}.hero h1{font-size:32px}}
+
+  /* Radar de Madurez */
+  .radar-box{margin-top:48px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:36px}
+  .radar-progress-track{background:rgba(255,255,255,0.12);border-radius:99px;height:6px;overflow:hidden;margin-bottom:8px}
+  .radar-progress-fill{background:var(--gold);height:100%;width:0%;transition:width .3s ease}
+  .radar-progress-label{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--gold-soft);margin-bottom:28px}
+  .radar-dim{font-family:var(--mono);font-size:11px;letter-spacing:0.15em;color:var(--signal);margin-bottom:10px}
+  .radar-question{font-family:var(--serif);font-size:22px;margin-bottom:28px;max-width:560px}
+  .scale{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+  .scale button{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,0.3);background:transparent;color:var(--white);font-family:var(--mono);font-size:13px;cursor:pointer;transition:background .15s,border-color .15s,transform .15s}
+  .scale button:hover{border-color:var(--gold)}
+  .scale button.selected{background:var(--gold);border-color:var(--gold);color:var(--navy-2);font-weight:600;transform:scale(1.08)}
+  .scale-labels{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:#8a94a6;max-width:400px;margin-bottom:32px}
+  .radar-nav{display:flex;justify-content:space-between;align-items:center}
+  .radar-nav .btn-text{background:none;border:none;color:var(--gold-soft);font-family:var(--mono);font-size:12px;letter-spacing:0.08em;cursor:pointer;padding:10px 4px}
+  .radar-nav .btn-text:disabled{opacity:0.3;cursor:not-allowed}
+  .radar-result h3{font-size:26px;margin-bottom:6px}
+  .radar-result .score{font-family:var(--mono);color:var(--gold);font-size:15px;margin-bottom:20px;display:block}
+  .radar-result p{color:#c9d2de;max-width:560px;margin-bottom:28px}
+  .radar-dims-summary{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.15);margin-bottom:28px;max-width:520px}
+  .radar-dims-summary div{background:var(--navy);padding:18px}
+  .radar-dims-summary .label{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:var(--gold-soft);display:block;margin-bottom:6px}
+  .radar-dims-summary .val{font-family:var(--serif);font-size:24px}
+  [hidden]{display:none!important}
+
+  /* IMA-4C */
+  .ima-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:start;margin-top:40px}
+  .ima-list{list-style:none;display:grid;gap:14px}
+  .ima-list li{display:flex;gap:14px;align-items:flex-start}
+  .ima-list li .n{font-family:var(--mono);color:var(--signal);font-size:12px;border:1px solid var(--signal);border-radius:50%;width:24px;height:24px;flex:none;display:flex;align-items:center;justify-content:center;margin-top:2px}
+  .ima-list li p{color:var(--ink-soft);font-size:15px}
+  .ima-list li strong{color:var(--navy);display:block;font-size:15px;margin-bottom:2px}
+  .ima-quote{background:var(--navy);color:var(--white);padding:32px;border-radius:8px;border-left:4px solid var(--gold)}
+  .ima-quote p{font-family:var(--serif);font-size:19px;font-style:italic;line-height:1.5}
+  .ima-quote cite{display:block;margin-top:16px;font-family:var(--mono);font-style:normal;font-size:11px;letter-spacing:0.1em;color:var(--gold-soft)}
+  @media(max-width:760px){.ima-grid{grid-template-columns:1fr}.radar-dims-summary{grid-template-columns:1fr}}
+
+  .form-status{font-family:var(--mono);font-size:12px;letter-spacing:0.05em;min-height:18px;color:var(--gold-soft)}
 </style>
 </head>
 <body>
@@ -134,6 +174,45 @@
     <div class="section-eyebrow">RADAR DE MADUREZ · DIAGNÓSTICO GRATUITO</div>
     <h2 class="section-title reveal">¿Cuánto tiempo y razonamiento está perdiendo tu empresa?</h2>
     <p class="section-lead reveal">Seis preguntas rápidas, en escala de 1 a 10, en dos dimensiones. Al final recibes tu lectura al instante y, si quieres, el análisis completo por WhatsApp. Sin costo y sin compromiso.</p>
+
+    <div class="radar-box reveal" id="radarApp">
+
+      <!-- Progress -->
+      <div id="radarProgressWrap">
+        <div class="radar-progress-track"><div class="radar-progress-fill" id="radarProgressFill"></div></div>
+        <div class="radar-progress-label" id="radarProgressLabel">0/6 RESPONDIDAS</div>
+      </div>
+
+      <!-- Question step -->
+      <div id="radarQuestionStep">
+        <div class="radar-dim" id="radarDimLabel"></div>
+        <div class="radar-question" id="radarQuestionText"></div>
+        <div class="scale" id="radarScale"></div>
+        <div class="scale-labels"><span>1 · Nada de acuerdo</span><span>10 · Totalmente de acuerdo</span></div>
+        <div class="radar-nav">
+          <button type="button" class="btn-text" id="radarPrev">← ANTERIOR</button>
+          <button type="button" class="btn-text" id="radarNext" disabled>SIGUIENTE →</button>
+        </div>
+      </div>
+
+      <!-- Result step -->
+      <div id="radarResultStep" hidden>
+        <div class="radar-result">
+          <span class="score" id="radarScoreLabel"></span>
+          <h3 id="radarResultTitle"></h3>
+          <p id="radarResultText"></p>
+          <div class="radar-dims-summary">
+            <div><span class="label">TIEMPO OPERATIVO ATRAPADO</span><span class="val" id="radarDimTiempo"></span></div>
+            <div><span class="label">MADUREZ EN IA</span><span class="val" id="radarDimMadurez"></span></div>
+          </div>
+          <div class="btn-row">
+            <a href="#contacto" class="btn-gold" id="radarCta">Recibir análisis completo por WhatsApp</a>
+            <button type="button" class="btn-outline" id="radarRestart" style="background:none">Repetir diagnóstico</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -143,6 +222,25 @@
     <h2 class="section-title reveal">Del radar gratuito al diagnóstico profundo.</h2>
     <h3 class="reveal">Diagnóstico <em style="color:var(--gold);font-style:italic">IMA-4C</em></h3>
     <p class="section-lead reveal">El Radar de arriba te da una primera lectura. El IMA-4C es el diagnóstico completo y estructurado: mapea, en tu empresa concreta, dónde la inteligencia artificial puede crear valor financiero y operativo real.</p>
+
+    <div class="ima-grid">
+      <div class="reveal">
+        <div class="section-eyebrow" style="margin-top:8px">QUÉ RECIBE</div>
+        <ul class="ima-list">
+          <li><span class="n">1</span><p><strong>Mapa priorizado de oportunidades</strong>Identificamos, proceso por proceso, dónde la IA puede generar más valor en tu empresa.</p></li>
+          <li><span class="n">2</span><p><strong>Quick wins</strong>Acciones de bajo esfuerzo y alto impacto que puedes empezar a implementar de inmediato.</p></li>
+          <li><span class="n">3</span><p><strong>Estimación de valor</strong>Una cuantificación realista del tiempo y el dinero que cada oportunidad puede liberar.</p></li>
+          <li><span class="n">4</span><p><strong>Hoja de ruta por fases</strong>Un plan de adopción escalonado, con prudencia, para no sobresaltar la operación.</p></li>
+          <li><span class="n">5</span><p><strong>Sesión de presentación</strong>Recorremos los hallazgos contigo y tu equipo, y resolvemos dudas en vivo.</p></li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="ima-quote">
+          <p>"Entregable con valor propio: aunque nunca contrates la implementación, el diagnóstico IMA-4C ya te deja un mapa claro y accionable de dónde está el valor en tu operación."</p>
+          <cite>MÉTODO 4C® · ACADEMIA DE IA®</cite>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -169,34 +267,212 @@
       <p class="section-lead reveal">Cuéntanos sobre tu empresa y coordinamos tu diagnóstico. Respondemos de forma personal, no automática.</p>
       <p style="margin-top:24px;font-family:var(--mono);font-size:13px">Correo: dvelez@rentavalor.com</p>
     </div>
-    <form>
+    <form id="contactForm" name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contacto">
+      <p hidden><label>No llenar: <input name="bot-field"></label></p>
       <div class="form-row">
-        <div><label>NOMBRE</label><input type="text"></div>
-        <div><label>EMPRESA</label><input type="text"></div>
+        <div><label for="f-nombre">NOMBRE</label><input type="text" id="f-nombre" name="nombre" required></div>
+        <div><label for="f-empresa">EMPRESA</label><input type="text" id="f-empresa" name="empresa" required></div>
       </div>
       <div class="form-row">
-        <div><label>CARGO</label><input type="text"></div>
-        <div><label>WHATSAPP</label><input type="text"></div>
+        <div><label for="f-cargo">CARGO</label><input type="text" id="f-cargo" name="cargo"></div>
+        <div><label for="f-whatsapp">WHATSAPP</label><input type="text" id="f-whatsapp" name="whatsapp" required></div>
       </div>
-      <div><label>¿QUÉ PROCESO TE ESTÁ ROBANDO MÁS TIEMPO HOY?</label><textarea rows="3"></textarea></div>
-      <button type="submit" class="btn-gold" style="border:none;cursor:pointer">Enviar por WhatsApp</button>
+      <div><label for="f-proceso">¿QUÉ PROCESO TE ESTÁ ROBANDO MÁS TIEMPO HOY?</label><textarea rows="3" id="f-proceso" name="proceso"></textarea></div>
+      <button type="submit" class="btn-gold" id="contactSubmit">Enviar por WhatsApp</button>
+      <div class="form-status" id="contactStatus"></div>
     </form>
   </div>
 </section>
 
 <footer>
-  <div class="wrap" style="display:flex;justify-content:space-between">
+  <div class="wrap">
     <span>Valor · Prudencia · Tiempo</span>
     <span>Rentavalor S.A.S. · Finanzas potenciadas por IA · Medellín, Colombia</span>
   </div>
 </footer>
 
 <script>
+  // ---- Scroll reveal ----
   var els = document.querySelectorAll('.reveal');
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if (e.isIntersecting) e.target.classList.add('in'); });
   }, {threshold:0.15});
   els.forEach(function(el){ io.observe(el); });
+
+  // ---- Radar de Madurez ----
+  (function(){
+    var questions = [
+      { dim: 'tiempo',   dimLabel: 'DIMENSIÓN 1 · TIEMPO OPERATIVO ATRAPADO', text: 'Mi equipo dedica buena parte de su semana a tareas repetitivas y manuales (reportes, conciliaciones, captura de datos).' },
+      { dim: 'tiempo',   dimLabel: 'DIMENSIÓN 1 · TIEMPO OPERATIVO ATRAPADO', text: 'Cuando alguien clave del equipo está ausente, esas tareas repetitivas igual se acumulan o se atrasan visiblemente.' },
+      { dim: 'tiempo',   dimLabel: 'DIMENSIÓN 1 · TIEMPO OPERATIVO ATRAPADO', text: 'Los errores por trabajo manual (reprocesos, cifras mal digitadas, reportes que hay que rehacer) son frecuentes en mi empresa.' },
+      { dim: 'madurez',  dimLabel: 'DIMENSIÓN 2 · MADUREZ EN IA', text: 'Hoy usamos herramientas de inteligencia artificial de forma habitual en algún proceso financiero u operativo.' },
+      { dim: 'madurez',  dimLabel: 'DIMENSIÓN 2 · MADUREZ EN IA', text: 'Tengo claridad sobre en qué procesos concretos de mi empresa la IA generaría más valor si la implementáramos.' },
+      { dim: 'madurez',  dimLabel: 'DIMENSIÓN 2 · MADUREZ EN IA', text: 'Mi equipo está abierto y preparado para adoptar nuevas herramientas de IA, sin resistencia significativa al cambio.' }
+    ];
+
+    var answers = new Array(questions.length).fill(null);
+    var current = 0;
+
+    var progressFill = document.getElementById('radarProgressFill');
+    var progressLabel = document.getElementById('radarProgressLabel');
+    var dimLabelEl = document.getElementById('radarDimLabel');
+    var questionTextEl = document.getElementById('radarQuestionText');
+    var scaleEl = document.getElementById('radarScale');
+    var prevBtn = document.getElementById('radarPrev');
+    var nextBtn = document.getElementById('radarNext');
+    var questionStep = document.getElementById('radarQuestionStep');
+    var resultStep = document.getElementById('radarResultStep');
+    var restartBtn = document.getElementById('radarRestart');
+    var radarCta = document.getElementById('radarCta');
+
+    function answeredCount(){
+      return answers.filter(function(a){ return a !== null; }).length;
+    }
+
+    function renderScale(){
+      scaleEl.innerHTML = '';
+      for (var i = 1; i <= 10; i++){
+        (function(val){
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.textContent = val;
+          if (answers[current] === val) b.classList.add('selected');
+          b.addEventListener('click', function(){
+            answers[current] = val;
+            renderQuestion();
+          });
+          scaleEl.appendChild(b);
+        })(i);
+      }
+    }
+
+    function renderQuestion(){
+      var q = questions[current];
+      dimLabelEl.textContent = q.dimLabel;
+      questionTextEl.textContent = q.text;
+      renderScale();
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = answers[current] === null;
+      nextBtn.textContent = current === questions.length - 1 ? 'VER RESULTADO →' : 'SIGUIENTE →';
+
+      var pct = Math.round((answeredCount() / questions.length) * 100);
+      progressFill.style.width = pct + '%';
+      progressLabel.textContent = answeredCount() + '/' + questions.length + ' RESPONDIDAS';
+    }
+
+    prevBtn.addEventListener('click', function(){
+      if (current > 0){ current--; renderQuestion(); }
+    });
+
+    nextBtn.addEventListener('click', function(){
+      if (answers[current] === null) return;
+      if (current < questions.length - 1){
+        current++;
+        renderQuestion();
+      } else {
+        showResult();
+      }
+    });
+
+    function avg(dim){
+      var vals = [];
+      questions.forEach(function(q, i){ if (q.dim === dim && answers[i] !== null) vals.push(answers[i]); });
+      if (!vals.length) return 0;
+      return vals.reduce(function(a,b){ return a+b; }, 0) / vals.length;
+    }
+
+    function showResult(){
+      var tiempoScore = avg('tiempo');
+      var madurezScore = avg('madurez');
+      var overall = (tiempoScore + madurezScore) / 2;
+
+      var title, text;
+      if (overall >= 7.5){
+        title = 'Tu empresa tiene una fuga crítica de tiempo y razonamiento.';
+        text = 'Tu equipo está atrapado en tareas repetitivas y aún no está capitalizando la IA para liberarlo. Es el perfil donde una automatización bien priorizada suele mostrar resultados más rápido.';
+      } else if (overall >= 5){
+        title = 'Hay una oportunidad clara de recuperar tiempo y criterio.';
+        text = 'Ya hay señales de trabajo manual que pesa sobre tu equipo, y todavía queda camino por recorrer en el uso de IA. Un diagnóstico estructurado te mostraría dónde priorizar.';
+      } else {
+        title = 'Tu empresa parte de una base sólida.';
+        text = 'El peso de lo repetitivo es menor y ya hay algo de camino recorrido en IA. Aun así, casi siempre existen quick wins puntuales que vale la pena identificar.';
+      }
+
+      document.getElementById('radarScoreLabel').textContent = 'LECTURA GENERAL · ' + overall.toFixed(1) + ' / 10';
+      document.getElementById('radarResultTitle').textContent = title;
+      document.getElementById('radarResultText').textContent = text;
+      document.getElementById('radarDimTiempo').textContent = tiempoScore.toFixed(1);
+      document.getElementById('radarDimMadurez').textContent = madurezScore.toFixed(1);
+
+      var waText = 'Hola, acabo de hacer el Radar de Madurez en rentavalor.com. Mi lectura general fue ' + overall.toFixed(1) + '/10 (tiempo operativo: ' + tiempoScore.toFixed(1) + ', madurez en IA: ' + madurezScore.toFixed(1) + '). Quiero el análisis completo.';
+      radarCta.href = 'https://wa.me/?text=' + encodeURIComponent(waText);
+
+      questionStep.hidden = true;
+      document.getElementById('radarProgressWrap').hidden = true;
+      resultStep.hidden = false;
+    }
+
+    restartBtn.addEventListener('click', function(){
+      answers = new Array(questions.length).fill(null);
+      current = 0;
+      resultStep.hidden = true;
+      document.getElementById('radarProgressWrap').hidden = false;
+      questionStep.hidden = false;
+      renderQuestion();
+    });
+
+    renderQuestion();
+  })();
+
+  // ---- Contact form: Netlify Forms backup + WhatsApp redirect ----
+  (function(){
+    var WHATSAPP_NUMBER = ''; // TODO: set the business WhatsApp number in international format, e.g. 573001234567
+    var form = document.getElementById('contactForm');
+    var statusEl = document.getElementById('contactStatus');
+    var submitBtn = document.getElementById('contactSubmit');
+
+    function encode(data){
+      return Object.keys(data).map(function(k){
+        return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]);
+      }).join('&');
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var nombre = document.getElementById('f-nombre').value.trim();
+      var empresa = document.getElementById('f-empresa').value.trim();
+      var cargo = document.getElementById('f-cargo').value.trim();
+      var whatsapp = document.getElementById('f-whatsapp').value.trim();
+      var proceso = document.getElementById('f-proceso').value.trim();
+
+      if (!nombre || !empresa || !whatsapp){
+        statusEl.textContent = 'Completa nombre, empresa y WhatsApp.';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      statusEl.textContent = 'Enviando...';
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({
+          'form-name': 'contacto',
+          nombre: nombre, empresa: empresa, cargo: cargo, whatsapp: whatsapp, proceso: proceso
+        })
+      }).catch(function(err){
+        console.error('Netlify Forms submit failed', err);
+      }).finally(function(){
+        var msg = 'Hola, soy ' + nombre + ' de ' + empresa + (cargo ? ' (' + cargo + ')' : '') +
+          '. Quiero coordinar mi diagnóstico con Rentavalor.' +
+          (proceso ? ' El proceso que más tiempo me está robando: ' + proceso + '.' : '');
+        var target = (WHATSAPP_NUMBER ? 'https://wa.me/' + WHATSAPP_NUMBER : 'https://wa.me/') + '?text=' + encodeURIComponent(msg);
+        statusEl.textContent = 'Listo, te llevamos a WhatsApp...';
+        window.location.href = target;
+      });
+    });
+  })();
 </script>
 
 </body>
